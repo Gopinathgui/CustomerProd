@@ -1,0 +1,31 @@
+ body {
+     padding-top: 70px;
+ }
+ 
+ .customer-form-list input {
+     width: 100%;
+ }
+ /*
+ .ng-invalid-required.ng-dirty,
+ .ng-invalid-email {
+     border-color: red;
+ }
+ 
+ input.ng-invalid {
+     border: 1px solid red;
+ }
+ 
+ input.ng-valid {
+     border: 1px solid green;
+ }
+ */
+ 
+ .customer-form .form-group label {
+     width: 120px;
+     display: inline-block;
+ }
+ 
+ .table-bordered>tbody>tr>td.action-col,
+ .table-bordered>thead>tr>th.action-col {
+     width: 150px;
+ }

@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div>
+            <h1 class="text-center">{{ appTitle }}</h1>
+            <button class="btn btn-primary" ng-click="gotoCustomer()">Add Customer</button>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <div><b>Total Customers : {{count}}</b></div>
+            <br/>
+            <form name="customerFormEdit" class="customer-form-list">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <!-- <th>Index</th> -->
+                        <th>No.</th>
+                        <th>Email :</th>
+                        <th>First Name :</th>
+                        <th>Last Name :</th>
+                        <th>Phone Number :</th>
+                        <th>Address :</th>
+                        <th class="action-col">Action</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="customer in customers" ng-include="getTemplate(customer)"></tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/ng-template" id="display">
+    <!-- <td>{{customer.id}}</td> -->
+    <td>{{$index+1}}</td>
+    <td>{{customer.email}}</td>
+    <td>{{customer.fname}}</td>
+    <td>{{customer.lname}}</td>
+    <td>{{customer.phone}}</td>
+    <td>{{customer.address}}</td>
+    <td class="action-col">
+        <button ng-click="editCustomer(customer)" class="btn btn-info">Edit</button>
+        <button ng-click="deleteCustomer(customer)" class="btn btn-danger">Delete</button>
+    </td>
+</script>
+<script type="text/ng-template" id="edit">
+    <!-- <td>{{model.selected.id}}</td> -->
+    <td>{{$index+1}}</td>
+    <td>
+        <input type="email" name="email" ng-model="model.selected.email" required/>
+    </td>
+    <td>
+        <input type="text" name="fname" ng-model="model.selected.fname" required/>
+    </td>
+    <td>
+        <input type="text" name="lname" ng-model="model.selected.lname" required/>
+    </td>
+    <td>
+        <input type="number" name="phone" ng-model="model.selected.phone" />
+    </td>
+    <td>
+        <input type="text" name="address" ng-model="model.selected.address" />
+    </td>
+    <td class="action-col">
+        <button class="btn btn-success" ng-click="saveCustomer(model.selected.id)">Save</button>
+        <button class="btn btn-danger" ng-click="reset()">Cancel</button>
+    </td>
+</script>
